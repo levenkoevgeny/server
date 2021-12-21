@@ -4,4 +4,4 @@ django-filter
 django-heroku
 djangorestframework
 gunicorn
-whitenoise==5.3.0
+whitenoise
