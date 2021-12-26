@@ -41,6 +41,9 @@ INSTALLED_APPS = [
     'rest_framework',
     'word_trainer.apps.WordTrainerConfig',
     'whitenoise.runserver_nostatic',
+    'django_filters',
+    'rest_framework.authtoken',
+    'import_export',
 ]
 
 CORS_ORIGIN_ALLOW_ALL=True
@@ -75,6 +78,15 @@ TEMPLATES = [
         },
     },
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.TokenAuthentication',
+    ]
+}
 
 WSGI_APPLICATION = 'server.wsgi.application'
 
