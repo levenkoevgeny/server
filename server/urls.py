@@ -17,12 +17,17 @@ from django.contrib import admin
 from django.urls import path, include
 from word_trainer import views
 from rest_framework import routers
+from django.views.generic.base import RedirectView
+from django.urls import reverse_lazy
 
 router = routers.DefaultRouter()
 router.register(r'dictionaries', views.DictionaryViewSet)
 router.register(r'words', views.WordViewSet)
+router.register(r'users', views.UserViewSet)
 
 urlpatterns = [
+    path('', RedirectView.as_view(url='/api')),
     path('api/', include(router.urls)),
     path('admin/', admin.site.urls),
+    path('api-token-auth/', views.CustomAuthToken.as_view())
 ]
