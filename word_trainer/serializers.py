@@ -14,7 +14,7 @@ class WordSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Word
-        fields = ['dictionary', 'word_rus', 'word_eng']
+        fields = ['id', 'dictionary', 'word_rus', 'word_eng']
 
 
 class UserSerializer(serializers.ModelSerializer):
